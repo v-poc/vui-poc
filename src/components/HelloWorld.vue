@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
 .v-button {
-  margin: 20px
+  margin: 20px;
 }
 
 .v-progress {
