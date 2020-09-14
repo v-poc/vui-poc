@@ -1,59 +1,77 @@
 <template>
   <h1>{{ msg }}</h1>
-  <v-button
-    :type="count < 10 ? 'primary' : 'disabled'"
-    icon="edit"
-    inline
-    @click="count++"
-  >count is: {{ count }}</v-button>
-  <v-button
-    type="default"
-    inline
-    @click="count=0"
-  >reset</v-button>
   <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
   <v-progress-circular
     :size="80"
-    :value="count/10"
+    :color="state.strokeColor"
+    :value="state.count / 10"
     :width="5"
+    :duration="500"
     is-animated
   >
     <v-amount
-      :value="count * 10"
+      :value="state.count * 10"
       :precision="0"
       is-animated
     ></v-amount>%
-  </v-progress-circular>  
+  </v-progress-circular>
+  <v-action-bar :actions="state.actionData"></v-action-bar>
 </template>
 
 <script>
-import { VAmount, VButton, VProgress } from 'vui-vc-next'
+import { computed, reactive } from 'vue'
+import { VActionBar, VAmount, VProgress } from 'vui-vc-next'
 
 export default {
   name: 'HelloWorld',
+
   components: {
+    [VActionBar.name]: VActionBar,
     [VAmount.name]: VAmount,
-    [VButton.name]: VButton,
     [VProgress.name]: VProgress
-  },  
+  },
+
   props: {
     msg: String
   },
-  data() {
+
+  setup() {
+    const state = reactive({
+      count: 0,
+      strokeColor: computed(() => (state.count < 10 ? '#36C' : '#FC9153')),
+      actionData: [
+        {
+          text: 'Reset',
+          icon: 'clear',
+          onClick: () => {
+            state.count = 0
+          }
+        },
+        {
+          text: computed(() => `Count is: ${state.count}`),
+          type: computed(() => (state.count < 10 ? 'primary' : 'disabled')),
+          icon: 'edit',
+          onClick: () => {
+            state.count++
+          }
+        }
+      ]
+    })
+
     return {
-      count: 0
+      state
     }
   }
 }
 </script>
 
 <style scoped>
-.v-button {
-  margin: 20px;
+::v-deep(.v-action-bar-button) {
+  height: 36px;
 }
 
 .v-progress {
-  margin: 10px auto;
+  margin: 20px auto;
   width: 80px;
 }
 </style>
