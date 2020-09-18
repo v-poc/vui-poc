@@ -1,6 +1,21 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
+  <section>
+    <v-tag
+      type="fill"
+      shape="circle"
+      fill-color="#36C"
+      font-color="#FFF"
+      @click="state.showPopup=true"
+    >{{ msg }}</v-tag>
+    <v-landscape
+      :value="state.showPopup"
+      @input="val => state.showPopup=val"
+      mask-closable
+      transition="v-bounce"
+    >
+      <img src="../assets/logo.png" />
+    </v-landscape>    
+  </section>
   <v-progress-circular
     :size="80"
     :color="state.strokeColor"
@@ -8,6 +23,7 @@
     :width="5"
     :duration="500"
     is-animated
+    @click="state.showPopup=true"
   >
     <v-amount
       :value="state.count * 10"
@@ -20,7 +36,7 @@
 
 <script>
 import { computed, reactive } from 'vue'
-import { VActionBar, VAmount, VProgress } from 'vui-vc-next'
+import { VActionBar, VAmount, VProgress, VTag, VLandscape } from 'vui-vc-next'
 
 export default {
   name: 'HelloWorld',
@@ -28,7 +44,9 @@ export default {
   components: {
     [VActionBar.name]: VActionBar,
     [VAmount.name]: VAmount,
-    [VProgress.name]: VProgress
+    [VProgress.name]: VProgress,
+    [VTag.name]: VTag,
+    [VLandscape.name]: VLandscape
   },
 
   props: {
@@ -37,6 +55,7 @@ export default {
 
   setup() {
     const state = reactive({
+      showPopup: false,
       count: 0,
       strokeColor: computed(() => (state.count < 10 ? '#36C' : '#FC9153')),
       actionData: [
@@ -65,13 +84,27 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 ::v-deep(.v-action-bar-button) {
-  height: 36px;
+  height: 2.5rem;
+  font-size: 1rem;
+}
+
+::v-deep(.v-landscape-content) {
+  width: 100vw;
+  img {
+    width: 95vw;
+  }
+}
+
+::v-deep(.v-tag) {
+  .size-large {
+    font-size: 2rem;
+  }  
 }
 
 .v-progress {
-  margin: 20px auto;
+  margin: 1.5rem auto;
   width: 80px;
 }
 </style>
