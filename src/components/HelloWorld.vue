@@ -13,7 +13,7 @@
       mask-closable
       transition="v-bounce"
     >
-      <img src="../assets/logo.png" />
+      <img src="../assets/op.png" />
     </v-landscape>    
   </section>
   <v-progress-circular
