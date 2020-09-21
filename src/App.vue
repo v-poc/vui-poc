@@ -1,15 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello VUI" />
+  <img alt="Vue logo" src="./assets/logo.png" @click="showPopup(true)"/>
+  <HelloWorld ref="compRef" msg="Hello VUI"/>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+
   components: {
     HelloWorld
   }
+}
+
+export const compRef = ref('compRef')
+
+export const showPopup = (val) => {
+  const comp = compRef && compRef.value
+  comp && comp.showPopup(val)
 }
 </script>
