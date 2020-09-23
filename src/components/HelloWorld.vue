@@ -21,7 +21,8 @@
       :value="state.count * 10"
       :precision="0"
       is-animated
-    ></v-amount>%
+    ></v-amount>
+    <span class="unit">%</span>
   </v-progress-circular>
   <v-landscape
     :value="state.isShowPopup"
@@ -108,5 +109,9 @@ export const showPopup = (val) => {
 .v-progress {
   margin: 1.5rem auto;
   width: 80px;
+
+  span.unit {
+    font-size: 0.25rem;
+  }
 }
 </style>
