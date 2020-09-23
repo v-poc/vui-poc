@@ -101,6 +101,10 @@ export const showPopup = (val) => {
   }
 }
 
+::v-deep(.v-icon.icon-font.md) {
+  font-size: 1rem;
+}
+
 .v-progress {
   margin: 1.5rem auto;
   width: 80px;
