@@ -108,7 +108,6 @@ export const showPopup = (val) => {
 
 .v-progress {
   margin: 1.5rem auto;
-  width: 80px;
 
   span.unit {
     font-size: 0.25rem;
