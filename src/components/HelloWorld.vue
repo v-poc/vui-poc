@@ -30,14 +30,16 @@
     mask-closable
     transition="v-bounce"
   >
-    <img src="../assets/op.png" />
+    <div class="v-example-op">
+      <v-one-piece :scale="2"/>
+    </div>
   </v-landscape>
   <v-action-bar :actions="state.actionData"></v-action-bar>
 </template>
 
 <script setup>
 import { computed, reactive } from 'vue'
-import { VActionBar, VAmount, VProgress, VTag, VLandscape } from 'vui-vc-next'
+import { VActionBar, VAmount, VProgress, VTag, VLandscape, VOnePiece } from 'vui-vc-next'
 
 export default {
   name: 'HelloWorld',
@@ -47,7 +49,8 @@ export default {
     [VAmount.name]: VAmount,
     [VProgress.name]: VProgress,
     [VTag.name]: VTag,
-    [VLandscape.name]: VLandscape
+    [VLandscape.name]: VLandscape,
+    [VOnePiece.name]: VOnePiece
   },
 
   props: {
@@ -62,6 +65,7 @@ export const state = reactive({
   actionData: [
     {
       text: 'Reset',
+      type: computed(() => (state.count > 0 ? 'default' : 'disabled')),
       icon: 'clear',
       onClick: () => {
         state.count = 0
@@ -89,17 +93,14 @@ export const showPopup = (val) => {
   font-size: 1rem;
 }
 
-::v-deep(.v-landscape-content) {
-  width: 100vw;
-  img {
-    width: 95vw;
-  }
-}
-
 ::v-deep(.v-tag) {
   .size-large {
     font-size: 2rem;
   }
+}
+
+::v-deep(.v-landscape-content) {
+  width: 100vw;
 }
 
 ::v-deep(.v-icon.icon-font.md) {
@@ -112,5 +113,10 @@ export const showPopup = (val) => {
   span.unit {
     font-size: 0.25rem;
   }
+}
+
+.v-example-op {
+  padding-top: 4.5rem;
+  height: 16rem;
 }
 </style>

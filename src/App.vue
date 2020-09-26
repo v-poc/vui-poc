@@ -1,5 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" @click="showPopup(true)"/>
+  <img alt="Vue logo" src="https://vuejs.org/images/logo.png" @click="showPopup(true)"/>
   <HelloWorld ref="compRef" msg="Hello VUI"/>
 </template>
 
@@ -22,3 +22,9 @@ export const showPopup = (val) => {
   comp && comp.showPopup(val)
 }
 </script>
+
+<style scoped>
+img {
+  width: 50%;
+}
+</style>
