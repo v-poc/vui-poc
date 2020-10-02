@@ -1,8 +1,11 @@
 # vui-poc
+
+INTRODUCTION
 The helloworld demo based on vui-vc-next
 
 ## Project setup
 ```
+How to setup your project
 npm install
 ```
 
