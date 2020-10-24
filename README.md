@@ -1,6 +1,6 @@
 # vui-poc
 
-INTRODUCTION
+## INTRODUCTION
 
 The helloworld demo based on vui-vc-next
 
