@@ -1,5 +1,5 @@
 <template>
-  <img alt="Vue logo" src="https://vuejs.org/images/logo.png" @click="showPopup(true)"/>
+  <img alt="Vue logo" v-lazy="'https://vuejs.org/images/logo.png'" @click="showPopup(true)"/>
   <HelloWorld ref="compRef" msg="Hello VUI"/>
 </template>
 

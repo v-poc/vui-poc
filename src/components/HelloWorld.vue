@@ -24,9 +24,26 @@
     ></v-amount>
     <span class="unit">%</span>
   </v-progress-circular>
+  <v-popup
+    position="bottom"
+    v-model:value="state.isShowPopupTitleBar"
+  >
+    <v-popup-title-bar
+      title="Hello Vue 3.0"
+      describe="One Piece."
+      ok-text="ok"
+      cancel-text="cancel"
+      @confirm="state.isShowPopupTitleBar=false"
+      @cancel="state.isShowPopupTitleBar=false"
+    ></v-popup-title-bar>
+    <div class="v-example-op-default">
+      <v-one-piece @click="showPopup(true)" />
+    </div>
+  </v-popup>  
   <v-landscape
     v-model:value="state.isShowPopup"
     mask-closable
+    :show-close="false"
     transition="v-bounce"
   >
     <div class="v-example-op">
@@ -38,10 +55,10 @@
 
 <script setup>
 import { computed, reactive } from 'vue'
-import { VActionBar, VAmount, VProgress, VTag, VLandscape, VOnePiece } from 'vui-vc-next'
+import { VActionBar, VAmount, VProgress, VTag, VLandscape, VOnePiece, VPopup, VPopupTitleBar } from 'vui-vc-next'
 
 export default {
-  name: 'HelloWorld',
+  name: 'HelloWorldVUI',
 
   components: {
     [VActionBar.name]: VActionBar,
@@ -49,7 +66,9 @@ export default {
     [VProgress.name]: VProgress,
     [VTag.name]: VTag,
     [VLandscape.name]: VLandscape,
-    [VOnePiece.name]: VOnePiece
+    [VOnePiece.name]: VOnePiece,
+    [VPopup.name]: VPopup,
+    [VPopupTitleBar.name]: VPopupTitleBar
   },
 
   props: {
@@ -58,8 +77,10 @@ export default {
 }
 
 export const state = reactive({
+  isShowPopupTitleBar: false,
   isShowPopup: false,
   count: 0,
+  animDuration: 1000,
   strokeColor: computed(() => (state.count < 10 ? '#36C' : '#FC9153')),
   actionData: [
     {
@@ -76,6 +97,7 @@ export const state = reactive({
       icon: 'edit',
       onClick: () => {
         state.count++
+        state.count === 10 && setTimeout(() => (state.isShowPopupTitleBar = true), state.animDuration)
       }
     }
   ]
@@ -117,5 +139,14 @@ export const showPopup = (val) => {
 .v-example-op {
   padding-top: 4.5rem;
   height: 16rem;
+}
+
+::v-deep(.v-example-op-default) {
+  height: 10rem;
+  background: #fff;
+}
+
+::v-deep(.v-popup-title-bar.large) {
+  height: 3.6rem;
 }
 </style>

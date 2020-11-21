@@ -1,6 +1,6 @@
 {
   "name": "vui-poc",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "The VUI POC - Mobile web UI components based on Vue 3 and Vite",
   "scripts": {
     "dev": "vite",
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "vue": "^3.0.2",
-    "vui-vc-next": "^0.5.4"
+    "vui-vc-next": "^0.5.7"
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.2",
