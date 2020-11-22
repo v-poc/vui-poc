@@ -109,14 +109,24 @@ export const showPopup = (val) => {
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.v-action-bar-button) {
-  height: 2.5rem;
-  font-size: 1rem;
+.v-progress {
+  margin: 0.5rem auto;
+  span {
+    font-size: 0.3rem;
+  }
+  span.unit {
+    font-size: 0.2rem;
+  }
+}
+
+.v-example-op {
+  padding-top: 1.3rem;
+  height: 4.3rem;
 }
 
 ::v-deep(.v-tag) {
   .size-large {
-    font-size: 2rem;
+    font-size: 0.4rem;
   }
 }
 
@@ -124,29 +134,13 @@ export const showPopup = (val) => {
   width: 100vw;
 }
 
-::v-deep(.v-icon.icon-font.md) {
-  font-size: 1rem;
-}
-
-.v-progress {
-  margin: 1.5rem auto;
-
-  span.unit {
-    font-size: 0.25rem;
-  }
-}
-
-.v-example-op {
-  padding-top: 4.5rem;
-  height: 16rem;
-}
-
 ::v-deep(.v-example-op-default) {
-  height: 10rem;
-  background: #fff;
+  height: 3.2rem;
+  background: #FFF;
 }
 
-::v-deep(.v-popup-title-bar.large) {
-  height: 3.6rem;
+::v-deep(.v-button) {
+  height: 0.7rem;
+  font-size: 0.3rem;
 }
 </style>

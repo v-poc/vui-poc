@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { addDirective } from 'vui-vc-next'
 import App from './App.vue'
+import './assets/rem' // responsive
 import './index.css'
 
 const app = createApp(App)

@@ -27,4 +27,10 @@ export const showPopup = (val) => {
 img {
   width: 50%;
 }
+
+@media (min-width: 640px) {
+  img {
+    width: 4rem;
+  }
+}
 </style>
