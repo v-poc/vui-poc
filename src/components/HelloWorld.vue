@@ -120,8 +120,8 @@ export const showPopup = (val) => {
 }
 
 .v-example-op {
-  padding-top: 1.3rem;
-  height: 4.3rem;
+  padding-top: 1.2rem;
+  height: 4.8rem;
 }
 
 ::v-deep(.v-tag) {
@@ -141,6 +141,7 @@ export const showPopup = (val) => {
 
 ::v-deep(.v-button) {
   height: 0.7rem;
+  line-height: 0.7rem;
   font-size: 0.3rem;
 }
 </style>
