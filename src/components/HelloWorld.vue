@@ -1,4 +1,9 @@
 <template>
+  <img
+    alt="Vue logo"
+    v-lazy="'https://vuejs.org/images/logo.png'"
+    @click="showPopup(true)"
+  />
   <section>
     <v-tag
       type="fill"
@@ -54,29 +59,12 @@
 </template>
 
 <script setup>
-import { computed, reactive } from 'vue'
-import { VActionBar, VAmount, VProgress, VTag, VLandscape, VOnePiece, VPopup, VPopupTitleBar } from 'vui-vc-next'
+import { computed, defineProps, reactive } from 'vue'
+import { VActionBar, VAmount, VProgress as VProgressCircular, VTag, VLandscape, VOnePiece, VPopup, VPopupTitleBar } from 'vui-vc-next'
 
-export default {
-  name: 'HelloWorldVUI',
+defineProps({ msg: String })
 
-  components: {
-    [VActionBar.name]: VActionBar,
-    [VAmount.name]: VAmount,
-    [VProgress.name]: VProgress,
-    [VTag.name]: VTag,
-    [VLandscape.name]: VLandscape,
-    [VOnePiece.name]: VOnePiece,
-    [VPopup.name]: VPopup,
-    [VPopupTitleBar.name]: VPopupTitleBar
-  },
-
-  props: {
-    msg: String
-  }
-}
-
-export const state = reactive({
+const state = reactive({
   isShowPopupTitleBar: false,
   isShowPopup: false,
   count: 0,
@@ -103,7 +91,7 @@ export const state = reactive({
   ]
 })
 
-export const showPopup = (val) => {
+const showPopup = (val) => {
   state.isShowPopup = val
 }
 </script>
@@ -143,5 +131,15 @@ export const showPopup = (val) => {
   height: 0.7rem;
   line-height: 0.7rem;
   font-size: 0.3rem;
+}
+
+img {
+  width: 50%;
+}
+
+@media (min-width: 640px) {
+  img {
+    width: 4rem;
+  }
 }
 </style>
