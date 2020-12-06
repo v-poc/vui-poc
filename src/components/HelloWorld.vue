@@ -1,9 +1,4 @@
 <template>
-  <img
-    alt="Vue logo"
-    v-lazy="'https://vuejs.org/images/logo.png'"
-    @click="showPopup(true)"
-  />
   <section>
     <v-tag
       type="fill"
@@ -58,41 +53,65 @@
   <v-action-bar :actions="state.actionData"></v-action-bar>
 </template>
 
-<script setup>
-import { computed, defineProps, reactive } from 'vue'
-import { VActionBar, VAmount, VProgress as VProgressCircular, VTag, VLandscape, VOnePiece, VPopup, VPopupTitleBar } from 'vui-vc-next'
+<script>
+import { computed, reactive } from 'vue'
+import { VActionBar, VAmount, VTag, VLandscape, VOnePiece, VPopup, VPopupTitleBar, VProgress } from 'vui-vc-next'
 
-defineProps({ msg: String })
+export default {
+  name: 'HelloWorldVUI',
 
-const state = reactive({
-  isShowPopupTitleBar: false,
-  isShowPopup: false,
-  count: 0,
-  animDuration: 1000,
-  strokeColor: computed(() => (state.count < 10 ? '#36C' : '#FC9153')),
-  actionData: [
-    {
-      text: 'Reset',
-      type: computed(() => (state.count > 0 ? 'default' : 'disabled')),
-      icon: 'clear',
-      onClick: () => {
-        state.count = 0
-      }
-    },
-    {
-      text: computed(() => `Count is: ${state.count}`),
-      type: computed(() => (state.count < 10 ? 'primary' : 'disabled')),
-      icon: 'edit',
-      onClick: () => {
-        state.count++
-        state.count === 10 && setTimeout(() => (state.isShowPopupTitleBar = true), state.animDuration)
-      }
+  components: {
+    VActionBar,
+    VAmount,
+    VTag,
+    VLandscape,
+    VOnePiece,
+    VPopup,
+    VPopupTitleBar,
+    [VProgress.name]: VProgress,
+  },  
+
+  props: {
+    msg: String
+  },
+
+  setup() {
+    const state = reactive({
+      isShowPopupTitleBar: false,
+      isShowPopup: false,
+      count: 0,
+      animDuration: 1000,
+      strokeColor: computed(() => (state.count < 10 ? '#36C' : '#FC9153')),
+      actionData: [
+        {
+          text: 'Reset',
+          type: computed(() => (state.count > 0 ? 'default' : 'disabled')),
+          icon: 'clear',
+          onClick: () => {
+            state.count = 0
+          }
+        },
+        {
+          text: computed(() => `Count is: ${state.count}`),
+          type: computed(() => (state.count < 10 ? 'primary' : 'disabled')),
+          icon: 'edit',
+          onClick: () => {
+            state.count++
+            state.count === 10 && setTimeout(() => (state.isShowPopupTitleBar = true), state.animDuration)
+          }
+        }
+      ]
+    })
+
+    const showPopup = (val) => {
+      state.isShowPopup = val
     }
-  ]
-})
 
-const showPopup = (val) => {
-  state.isShowPopup = val
+    return {
+      state,
+      showPopup
+    }    
+  }
 }
 </script>
 
@@ -131,15 +150,5 @@ const showPopup = (val) => {
   height: 0.7rem;
   line-height: 0.7rem;
   font-size: 0.3rem;
-}
-
-img {
-  width: 50%;
-}
-
-@media (min-width: 640px) {
-  img {
-    width: 4rem;
-  }
 }
 </style>
