@@ -1,8 +1,10 @@
-# vui-poc
+# vite-vui-poc
 
 ## INTRODUCTION
 
-The helloworld demo based on vui-vc-next
+The HelloWorld demo based on VUI (Vue 3) with Vite.
+
+> VUI contains Mobile web UI components based on Vue 3.
 
 ## Project setup
 
