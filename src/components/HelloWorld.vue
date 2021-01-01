@@ -1,4 +1,5 @@
 <template>
+  <!-- START VTag -->
   <section>
     <v-tag
       type="fill"
@@ -8,6 +9,8 @@
       @click="showPopup(true)"
     >{{ msg }}</v-tag>
   </section>
+  <!-- END VTag -->
+  <!-- START VProgress -->
   <v-progress-circular
     :size="80"
     :color="state.strokeColor"
@@ -24,6 +27,8 @@
     ></v-amount>
     <span class="unit">%</span>
   </v-progress-circular>
+  <!-- END VProgress -->
+  <!-- START VPopup -->
   <v-popup
     position="bottom"
     v-model:value="state.isShowPopupTitleBar"
@@ -36,10 +41,28 @@
       @confirm="state.isShowPopupTitleBar=false"
       @cancel="state.isShowPopupTitleBar=false"
     ></v-popup-title-bar>
-    <div class="v-example-op-default">
-      <v-one-piece @click="showPopup(true)" />
+    <div class="v-example-popup-bottom">
+      <v-cube-anim
+        :scale="1.2"
+        front="Vue3"
+        back="Vite"
+        bottom="Sass"
+        right="VUI"
+        @click="showPopup(true)"
+      >
+        <template #top>
+          <img v-lazy="'https://nikoni.top/images/others/mj.png'" />
+        </template>
+        <template #left>
+          <div class="v-example-op-cube">
+            <v-one-piece :scale="0.8" />
+          </div>
+        </template>
+      </v-cube-anim>
     </div>
-  </v-popup>  
+  </v-popup>
+  <!-- END VPopup -->
+  <!-- START VLandscape -->
   <v-landscape
     v-model:value="state.isShowPopup"
     mask-closable
@@ -47,15 +70,28 @@
     transition="v-bounce"
   >
     <div class="v-example-op">
-      <v-one-piece :scale="1.8"/>
+      <v-one-piece :scale="1.8" />
     </div>
   </v-landscape>
+  <!-- END VLandscape -->
+  <!-- START VActionBar -->
   <v-action-bar :actions="state.actionData"></v-action-bar>
+  <!-- END VActionBar -->
 </template>
 
 <script>
 import { computed, reactive } from 'vue'
-import { VActionBar, VAmount, VTag, VLandscape, VOnePiece, VPopup, VPopupTitleBar, VProgress } from 'vui-vc-next'
+import {
+  VActionBar,
+  VAmount,
+  VTag,
+  VLandscape,
+  VOnePiece,
+  VPopup,
+  VPopupTitleBar,
+  VProgress,
+  VCubeAnim
+} from 'vui-vc-next'
 
 export default {
   name: 'HelloWorldVUI',
@@ -69,7 +105,8 @@ export default {
     VPopup,
     VPopupTitleBar,
     [VProgress.name]: VProgress,
-  },  
+    VCubeAnim
+  },
 
   props: {
     msg: String
@@ -87,9 +124,7 @@ export default {
           text: 'Reset',
           type: computed(() => (state.count > 0 ? 'default' : 'disabled')),
           icon: 'clear',
-          onClick: () => {
-            state.count = 0
-          }
+          onClick: () => (state.count = 0)
         },
         {
           text: computed(() => `Count is: ${state.count}`),
@@ -110,7 +145,7 @@ export default {
     return {
       state,
       showPopup
-    }    
+    }
   }
 }
 </script>
@@ -131,6 +166,13 @@ export default {
   height: 4.8rem;
 }
 
+.v-example-popup-bottom {
+  background-color: #fff;
+  .v-example-op-cube {
+    margin-top: -0.5rem;
+  }
+}
+
 ::v-deep(.v-tag) {
   .size-large {
     font-size: 0.4rem;
@@ -139,11 +181,6 @@ export default {
 
 ::v-deep(.v-landscape-content) {
   width: 100vw;
-}
-
-::v-deep(.v-example-op-default) {
-  height: 3.2rem;
-  background: #FFF;
 }
 
 ::v-deep(.v-button) {
