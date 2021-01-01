@@ -168,6 +168,9 @@ export default {
 
 .v-example-popup-bottom {
   background-color: #fff;
+  img {
+    width: 80%;
+  }
   .v-example-op-cube {
     margin-top: -0.5rem;
   }
