@@ -1,9 +1,10 @@
-import { defineConfig } from 'vite'
-import vuePlugin from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue'
 
-export default defineConfig({
-  plugins: [ vuePlugin() ],
+export default {
+  plugins: [
+    vue()
+  ],
   build: {
     base: '/vui-poc/'
   }
-})
+}
