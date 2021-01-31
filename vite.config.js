@@ -4,7 +4,5 @@ export default {
   plugins: [
     vue()
   ],
-  build: {
-    base: '/vui-poc/'
-  }
+  base: '/vui-poc/'
 }
