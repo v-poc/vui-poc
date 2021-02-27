@@ -26,7 +26,7 @@ img {
 
 @media (min-width: 640px) {
   img {
-    width: 4rem;
+    width: 400px;
   }
 }
 </style>

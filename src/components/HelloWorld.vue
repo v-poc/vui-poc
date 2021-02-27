@@ -152,18 +152,18 @@ export default {
 
 <style lang="scss" scoped>
 .v-progress {
-  margin: 0.5rem auto;
+  margin: 50px auto;
   span {
-    font-size: 0.3rem;
+    font-size: 30px;
   }
   span.unit {
-    font-size: 0.2rem;
+    font-size: 20px;
   }
 }
 
 .v-example-op {
-  padding-top: 1.2rem;
-  height: 4.8rem;
+  padding-top: 120px;
+  height: 480px;
 }
 
 .v-example-popup-bottom {
@@ -172,13 +172,13 @@ export default {
     width: 80%;
   }
   .v-example-op-cube {
-    margin-top: -0.5rem;
+    margin-top: -50px;
   }
 }
 
 ::v-deep(.v-tag) {
   .size-large {
-    font-size: 0.4rem;
+    font-size: 40px;
   }
 }
 
@@ -187,8 +187,8 @@ export default {
 }
 
 ::v-deep(.v-button) {
-  height: 0.7rem;
-  line-height: 0.7rem;
-  font-size: 0.3rem;
+  height: 70px;
+  line-height: 70px;
+  font-size: 30px;
 }
 </style>

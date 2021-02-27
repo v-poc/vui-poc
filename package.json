@@ -1,6 +1,6 @@
 {
   "name": "vui-poc",
-  "version": "0.3.18",
+  "version": "0.4.0",
   "description": "The VUI POC - Mobile web UI components based on Vue 3 and Vite 2",
   "license": "MIT",
   "scripts": {
@@ -9,11 +9,12 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.1.4",
-    "@vue/compiler-sfc": "^3.0.5",
+    "@vitejs/plugin-vue": "^1.1.5",
+    "@vue/compiler-sfc": "^3.0.6",
+    "postcss-pxtorem": "^5.1.1",
     "sass": "^1.32.8",
-    "vite": "^2.0.2",
-    "vue": "^3.0.5",
-    "vui-vc-next": "^0.10.13"
+    "vite": "^2.0.4",
+    "vue": "^3.0.6",
+    "vui-vc-next": "^0.11.0"
   }
 }
