@@ -3,6 +3,7 @@ import { addDirective } from 'vui-vc-next'
 import { defaultImage } from './assets/img'
 import App from './App.vue'
 import './assets/rem' // responsive
+import '../node_modules/vui-vc-next/dist/style.css' // lib css
 import './index.css'
 
 const app = createApp(App)
