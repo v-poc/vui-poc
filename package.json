@@ -1,6 +1,6 @@
 {
   "name": "vui-poc",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "The VUI POC - Mobile web UI components based on Vue 3 and Vite 2",
   "license": "MIT",
   "scripts": {
@@ -17,6 +17,6 @@
     "postcss-pxtorem": "^6.0.0",
     "sass": "^1.32.8",
     "vite": "^2.0.5",
-    "vui-vc-next": "^0.11.7"
+    "vui-vc-next": "^0.12.0"
   }
 }
