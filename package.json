@@ -14,11 +14,11 @@
     "start": "vite"
   },
   "dependencies": {
-    "vue": "^3.2.1"
+    "vue": "^3.2.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.4.0",
-    "@vue/compiler-sfc": "^3.2.1",
+    "@vue/compiler-sfc": "^3.2.2",
     "postcss-pxtorem": "^6.0.0",
     "sass": "^1.37.5",
     "vite": "^2.4.4",
