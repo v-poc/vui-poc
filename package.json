@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluepower/vui-poc.git"
+    "url": "git+https://github.com/v-poc/vui-poc.git"
   },
   "scripts": {
     "dev": "vite",
