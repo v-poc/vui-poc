@@ -1,6 +1,6 @@
 {
   "name": "vui-poc",
-  "version": "0.4.23",
+  "version": "0.5.0",
   "description": "The VUI POC - Mobile web UI components based on Vue 3 and Vite 2",
   "license": "MIT",
   "repository": {

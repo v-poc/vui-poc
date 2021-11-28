@@ -79,8 +79,14 @@
   <!-- END VActionBar -->
 </template>
 
-<script>
-import { computed, reactive } from 'vue'
+<script setup>
+import {
+  computed,
+  defineExpose,
+  defineProps,
+  reactive
+} from 'vue'
+
 import {
   VActionBar,
   VAmount,
@@ -89,65 +95,46 @@ import {
   VOnePiece,
   VPopup,
   VPopupTitleBar,
-  VProgress,
+  VProgress as VProgressCircular,
   VCubeAnim
 } from 'vui-vc-next'
 
-export default {
-  name: 'HelloWorldVUI',
+defineProps({
+  msg: String
+})
 
-  components: {
-    VActionBar,
-    VAmount,
-    VTag,
-    VLandscape,
-    VOnePiece,
-    VPopup,
-    VPopupTitleBar,
-    [VProgress.name]: VProgress,
-    VCubeAnim
-  },
-
-  props: {
-    msg: String
-  },
-
-  setup() {
-    const state = reactive({
-      isShowPopupTitleBar: false,
-      isShowPopup: false,
-      count: 0,
-      animDuration: 1000,
-      strokeColor: computed(() => (state.count < 10 ? '#36C' : '#FC9153')),
-      actionData: [
-        {
-          text: 'Reset',
-          type: computed(() => (state.count > 0 ? 'default' : 'disabled')),
-          icon: 'clear',
-          onClick: () => (state.count = 0)
-        },
-        {
-          text: computed(() => `Count is: ${state.count}`),
-          type: computed(() => (state.count < 10 ? 'primary' : 'disabled')),
-          icon: 'edit',
-          onClick: () => {
-            state.count++
-            state.count === 10 && setTimeout(() => (state.isShowPopupTitleBar = true), state.animDuration)
-          }
-        }
-      ]
-    })
-
-    const showPopup = (val) => {
-      state.isShowPopup = val
+const state = reactive({
+  isShowPopupTitleBar: false,
+  isShowPopup: false,
+  count: 0,
+  animDuration: 1000,
+  strokeColor: computed(() => (state.count < 10 ? '#36C' : '#FC9153')),
+  actionData: [
+    {
+      text: 'Reset',
+      type: computed(() => (state.count > 0 ? 'default' : 'disabled')),
+      icon: 'clear',
+      onClick: () => (state.count = 0)
+    },
+    {
+      text: computed(() => `Count is: ${state.count}`),
+      type: computed(() => (state.count < 10 ? 'primary' : 'disabled')),
+      icon: 'edit',
+      onClick: () => {
+        state.count++
+        state.count === 10 && setTimeout(() => (state.isShowPopupTitleBar = true), state.animDuration)
+      }
     }
+  ]
+})
 
-    return {
-      state,
-      showPopup
-    }
-  }
+const showPopup = (val) => {
+  state.isShowPopup = val
 }
+
+defineExpose({
+  showPopup
+})
 </script>
 
 <style lang="scss" scoped>
