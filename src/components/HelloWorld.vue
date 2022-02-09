@@ -82,8 +82,8 @@
 <script setup>
 import {
   computed,
-  defineExpose,
-  defineProps,
+  // defineExpose,
+  // defineProps,
   reactive
 } from 'vue'
 
